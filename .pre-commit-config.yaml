@@ -1,0 +1,10 @@
+repos:
+- repo: git@github.com:fortran-lang/fprettify.git
+  rev: v0.3.7
+  hooks:
+  - id: fprettify
+    name: auto-formatter for modern fortran source code
+    description: imposes strict whitespace formatting for modern (F90+) Fortran code
+    entry: fprettify
+    language: python
+    files: \.[fF]\d*$

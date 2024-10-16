@@ -28,11 +28,11 @@ program hf_two_electron
    allocate (ys(num_xs))
 
    do concurrent(i=1:num_xs)
-      xs(i) = MIN_X + h*(i-1)
+      xs(i) = MIN_X + h*(i - 1)
       ys(i) = 0
    end do
 
-   call numerovBackward(hydrogen_potential, xs, ys, h, num_xs, n, Z, l)
+   call numerovBackward(hydrogenPotential, xs, ys, h, num_xs, n, Z, l)
 
    open (newunit=io, file="plot_data.dat")
    do i = 1, num_xs

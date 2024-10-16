@@ -3,7 +3,7 @@ module numerov
 
 contains
 
-  subroutine numerovBackward(g, xs, ys, h, iterations, n, Z, l)
+   subroutine numerovBackward(g, xs, ys, h, iterations, n, Z, l)
       real, intent(in) :: xs(:)
       real, intent(inout) :: ys(:)
 
@@ -34,16 +34,16 @@ contains
       end do
 
       normalization = normalize(xs, ys)
-      
+
       print *, normalization
       do concurrent(i=1:iterations)
          ys(i) = ys(i)/normalization
       end do
-      
-    end subroutine numerovBackward
-    
-    ! Normalisation -> using Simpson's 3/8 rule
-    real function normalize(x_vals, y_vals) result(normalization_const)
+
+   end subroutine numerovBackward
+
+   ! Normalisation -> using Simpson's 3/8 rule
+   real function normalize(x_vals, y_vals) result(normalization_const)
       implicit none
       real, intent(in) :: x_vals(:), y_vals(:)
       integer :: points(4)
